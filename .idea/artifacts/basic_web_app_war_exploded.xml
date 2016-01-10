@@ -16,6 +16,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.4.RELEASE" />
+          <element id="library" level="project" name="Maven: org.mockito:mockito-all:1.10.19" />
         </element>
       </element>
       <element id="directory" name="META-INF">
