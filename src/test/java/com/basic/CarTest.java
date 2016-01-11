@@ -5,6 +5,7 @@ package com.basic;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -13,28 +14,26 @@ import static org.mockito.Mockito.*;
 /**
  * Created by fcj on 16/1/10.
  */
-public class CalculatorTest {
+public class CarTest {
 
     @Mock
-    private Calculator calculator;
+    private Engine engine;
+    @InjectMocks
+    private Car car;
 
     @Before
     public void setUp(){
 
         MockitoAnnotations.initMocks(this);
 
-
-        //   calculator = new Calculator();
     }
 
     @Test
-    public void testAbs(){
+    public void testWarning(){
+        when(engine.getRpm()).thenReturn(6000);
+        car.accelerate();
+        assertEquals(car.getWarningMessage(),"Slow Down!");
 
-/*        int expected = 4;
-        int actual = calculator.abs(-4);
-        assertEquals(expected,actual);*/
-        when(calculator.abs(-20)).thenReturn(20);
-        assertEquals(20,calculator.abs(-20));
     }
 
 
