@@ -65,14 +65,5 @@ public class BlogEntryControllerTest {
 
 
 
-    @Test
-    public void test4() throws Exception {
-        mockMvc.perform(post("/test4").
-                        content("{\"title\":\"Test Blog Entry\"}").
-                        contentType(MediaType.APPLICATION_JSON)
-                        ).andExpect(jsonPath("$.title",is("Test Blog Entry Back to client")))
-                        .andDo(print());
-    }
-
 
 }
