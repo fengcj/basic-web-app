@@ -1,9 +1,11 @@
-package com.basic.entities;
+package com.core.entities;
 
 /**
  * Created by fengc on 1/11/2016.
  */
 public class BlogEntry {
+
+    private Long id;
 
     private String title;
 
@@ -14,4 +16,12 @@ public class BlogEntry {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 }
