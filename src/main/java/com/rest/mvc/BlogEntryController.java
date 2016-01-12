@@ -29,13 +29,36 @@ public class BlogEntryController {
 
     @RequestMapping(value="/rest/blog-entries/{blogEntryId}",method = RequestMethod.GET)
     public ResponseEntity<BlogEntryResource> getBlogEntry(@PathVariable Long blogEntryId){
-        BlogEntry blogEntry = service.find(blogEntryId);
+        BlogEntry blogEntry = service.findBlogEntry(blogEntryId);
         if(blogEntry == null){
             return new ResponseEntity<BlogEntryResource>(HttpStatus.NOT_FOUND);
         }
         BlogEntryResource blogEntryResource = new BlogEntryResourceAsm().toResource(blogEntry);
         return  new ResponseEntity<BlogEntryResource>(blogEntryResource,HttpStatus.OK);
 
+    }
+
+    @RequestMapping(value = "/rest/blog-entries/{blogEntryId}",method = RequestMethod.DELETE)
+    public ResponseEntity<BlogEntryResource> deleteBlogEntry(@PathVariable Long blogEntryId){
+
+        BlogEntry blogEntry = service.deleteBlogEntry(blogEntryId);
+        if(blogEntry == null){
+            return new ResponseEntity<BlogEntryResource>(HttpStatus.NOT_FOUND);
+        }
+        BlogEntryResource blogEntryResource = new BlogEntryResourceAsm().toResource(blogEntry);
+        return new ResponseEntity<BlogEntryResource>(blogEntryResource,HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/rest/blog-entries/{blogEntryId}",method = RequestMethod.PUT)
+    public ResponseEntity<BlogEntryResource> updateBlogEntry(@PathVariable Long blogEntryId,@RequestBody BlogEntryResource sentBlogEntry){
+
+        BlogEntry blogEntry = service.updateBlogEntry(blogEntryId,sentBlogEntry.toBlogEntry());
+        if(blogEntry == null){
+            return new ResponseEntity<BlogEntryResource>(HttpStatus.NOT_FOUND);
+        }
+        BlogEntryResource blogEntryResource = new BlogEntryResourceAsm().toResource(blogEntry);
+
+        return new ResponseEntity<BlogEntryResource>(blogEntryResource,HttpStatus.OK);
     }
 
 

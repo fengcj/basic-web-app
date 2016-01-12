@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -47,7 +46,7 @@ public class BlogEntryControllerTest {
         blogEntry.setId(1L);
         blogEntry.setTitle("Test title");
 
-        when(service.find(1L)).thenReturn(blogEntry);
+        when(service.findBlogEntry(1L)).thenReturn(blogEntry);
 
         mockMvc.perform(get("/rest/blog-entries/1"))
                 .andExpect(jsonPath("$.title",is(blogEntry.getTitle())))
@@ -58,12 +57,12 @@ public class BlogEntryControllerTest {
 
     @Test
     public void getNonExistingBlogEntry() throws Exception {
-        when(service.find(1L)).thenReturn(null);
+        when(service.findBlogEntry(1L)).thenReturn(null);
 
         mockMvc.perform(get("/rest/blog-entries/1")).andExpect(status().isNotFound()).andDo(print());
     }
 
-
+    // TODO: add PUT and DELETE test
 
 
 }

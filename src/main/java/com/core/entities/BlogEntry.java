@@ -9,6 +9,16 @@ public class BlogEntry {
 
     private String title;
 
+    private Blog blog;
+
+    public Blog getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
     public String getTitle() {
         return title;
     }
