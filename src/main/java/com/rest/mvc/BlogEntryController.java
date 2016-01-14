@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequestMapping("/rest/blog-entries")
 public class BlogEntryController {
 
     private BlogEntryService service;
@@ -27,7 +28,7 @@ public class BlogEntryController {
     }
 
 
-    @RequestMapping(value="/rest/blog-entries/{blogEntryId}",method = RequestMethod.GET)
+    @RequestMapping(value="/{blogEntryId}",method = RequestMethod.GET)
     public ResponseEntity<BlogEntryResource> getBlogEntry(@PathVariable Long blogEntryId){
         BlogEntry blogEntry = service.findBlogEntry(blogEntryId);
         if(blogEntry == null){
@@ -38,7 +39,7 @@ public class BlogEntryController {
 
     }
 
-    @RequestMapping(value = "/rest/blog-entries/{blogEntryId}",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{blogEntryId}",method = RequestMethod.DELETE)
     public ResponseEntity<BlogEntryResource> deleteBlogEntry(@PathVariable Long blogEntryId){
 
         BlogEntry blogEntry = service.deleteBlogEntry(blogEntryId);
@@ -49,10 +50,10 @@ public class BlogEntryController {
         return new ResponseEntity<BlogEntryResource>(blogEntryResource,HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/rest/blog-entries/{blogEntryId}",method = RequestMethod.PUT)
+    @RequestMapping(value = "/{blogEntryId}",method = RequestMethod.PUT)
     public ResponseEntity<BlogEntryResource> updateBlogEntry(@PathVariable Long blogEntryId,@RequestBody BlogEntryResource sentBlogEntry){
 
-        BlogEntry blogEntry = service.updateBlogEntry(blogEntryId,sentBlogEntry.toBlogEntry());
+        BlogEntry blogEntry = service.updateBlogEntry(blogEntryId, sentBlogEntry.toBlogEntry());
         if(blogEntry == null){
             return new ResponseEntity<BlogEntryResource>(HttpStatus.NOT_FOUND);
         }
