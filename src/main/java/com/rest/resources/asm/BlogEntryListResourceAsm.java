@@ -2,7 +2,6 @@ package com.rest.resources.asm;
 
 import com.core.services.util.BlogEntryList;
 import com.rest.mvc.BlogController;
-import com.rest.mvc.BlogEntryListController;
 import com.rest.resources.BlogEntryListResource;
 import com.rest.resources.BlogEntryResource;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
@@ -17,7 +16,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 public class BlogEntryListResourceAsm extends ResourceAssemblerSupport<BlogEntryList,BlogEntryListResource> {
 
     public BlogEntryListResourceAsm() {
-        super(BlogEntryListController.class, BlogEntryListResource.class);
+        super(BlogController.class, BlogEntryListResource.class);
     }
 
     @Override
