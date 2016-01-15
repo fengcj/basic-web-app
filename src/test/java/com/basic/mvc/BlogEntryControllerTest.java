@@ -6,8 +6,10 @@ import com.rest.mvc.BlogEntryController;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -15,6 +17,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -26,18 +30,17 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BlogEntryControllerTest {
 
     @InjectMocks
-    private BlogEntryController controller;
+    private BlogEntryController blogEntryController;
 
     @Mock
     private BlogEntryService service;
-
 
     private MockMvc mockMvc;
 
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(blogEntryController).build();
     }
 
     @Test
@@ -49,8 +52,8 @@ public class BlogEntryControllerTest {
         when(service.findBlogEntry(1L)).thenReturn(blogEntry);
 
         mockMvc.perform(get("/rest/blog-entries/1"))
-                .andExpect(jsonPath("$.title",is(blogEntry.getTitle())))
-                .andExpect(jsonPath("$.links[*].href",hasItem(endsWith("/blog-entries/1"))))
+                .andExpect(jsonPath("$.title", is(blogEntry.getTitle())))
+                .andExpect(jsonPath("$.links[*].href", hasItem(endsWith("/blog-entries/1"))))
                 .andExpect(status().isOk()).andDo(print());
 
     }
@@ -62,7 +65,35 @@ public class BlogEntryControllerTest {
         mockMvc.perform(get("/rest/blog-entries/1")).andExpect(status().isNotFound()).andDo(print());
     }
 
-    // TODO: add PUT and DELETE test
+
+    @Test
+    public void deleteExistingBlogEntry() throws Exception {
+        BlogEntry deletedBlogEntry = new BlogEntry();
+        deletedBlogEntry.setTitle("Test Title");
+        deletedBlogEntry.setId(1L);
+
+        when(service.deleteBlogEntry(1L)).thenReturn(deletedBlogEntry);
+
+        mockMvc.perform(delete("/rest/blog-entries/1"))
+                .andExpect(jsonPath("$.title", is(deletedBlogEntry.getTitle())))
+                .andExpect(jsonPath("$.links[*].href", hasItem(endsWith("/blog-entries/1"))))
+                .andExpect(status().isOk()).andDo(print());
+
+    }
+
+    @Test
+    public void updateExistingBlogEntry() throws Exception {
+        BlogEntry updatedBlogEntry = new BlogEntry();
+        updatedBlogEntry.setTitle("Updated Test Title");
+        updatedBlogEntry.setId(1L);
+
+        when(service.updateBlogEntry(eq(1L), any(BlogEntry.class))).thenReturn(updatedBlogEntry);
+        mockMvc.perform(put("/rest/blog-entries/1").content("{\"title\":\"Test Title\"}").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.title", is(updatedBlogEntry.getTitle())))
+                .andExpect(jsonPath("$.links[*].href", hasItem(endsWith("/blog-entries/1"))))
+                .andExpect(status().isOk()).andDo(print());
+
+    }
 
 
 }

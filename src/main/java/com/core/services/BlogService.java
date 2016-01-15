@@ -18,7 +18,7 @@ public interface BlogService {
 
     Blog findBlog(Long id);
 
-
+    Blog deleteBlogEntry(Long id);
 
 
 }

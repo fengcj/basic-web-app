@@ -12,6 +12,8 @@ import com.rest.resources.AccountResource;
 import com.rest.resources.BlogResource;
 import com.rest.resources.asm.AccountResourceAsm;
 import com.rest.resources.asm.BlogResourceAsm;
+
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,21 +59,43 @@ public class AccountController {
         return new ResponseEntity<AccountResource>(accountResource,HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{accountId}/blogs",method=RequestMethod.POST)
+/*    @RequestMapping(value = "/{accountId}/blogs",method=RequestMethod.POST)
     public ResponseEntity<BlogResource> createBlog(@PathVariable Long accountId,@RequestBody BlogResource blogResource){
-
+        System.out.println("accountId is " + accountId + "!!!");
         try{
             Blog createdBlog = accountService.createBlog(accountId,blogResource.toBlog());
             BlogResource createdBlogRes = new BlogResourceAsm().toResource(createdBlog);
             HttpHeaders headers = new HttpHeaders();
             headers.setLocation(URI.create(createdBlogRes.getLink("self").getHref()));
             return new ResponseEntity<BlogResource>(createdBlogRes,headers,HttpStatus.CREATED);
+
         }catch (AccountDoesNotExistException exception){
             throw  new BadRequestException(exception);
         }catch (BlogExistsException exception){
             throw new ConflictException(exception);
         }
 
+    }*/
+
+    @RequestMapping(value="/{accountId}/blogs",
+            method = RequestMethod.POST)
+    public ResponseEntity<BlogResource> createBlog(
+            @PathVariable Long accountId,
+            @RequestBody BlogResource res)
+    {
+        try {
+            Blog createdBlog = accountService.createBlog(accountId, res.toBlog());
+            BlogResource createdBlogRes = new BlogResourceAsm().toResource(createdBlog);
+            HttpHeaders headers = new HttpHeaders();
+            headers.setLocation(URI.create(createdBlogRes.getLink("self").getHref()));
+            return new ResponseEntity<BlogResource>(createdBlogRes, headers, HttpStatus.CREATED);
+        } catch(AccountDoesNotExistException exception)
+        {
+            throw new BadRequestException(exception);
+        } catch(BlogExistsException exception)
+        {
+            throw new ConflictException(exception);
+        }
     }
 
 
