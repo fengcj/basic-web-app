@@ -55,7 +55,6 @@ public class AccountControllerTest {
 
         when(accountService.createBlog(eq(1L),any(Blog.class))).thenReturn(createdBlog);
 
-                              //   /rest/accounts/1/blogs
         mockMvc.perform(post("/rest/accounts/1/blogs")
                 .content("{\"title\":\"Test title\"}")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -66,12 +65,9 @@ public class AccountControllerTest {
                 .andDo(print());
 
 
-
-
     }
 
-
-/*    @Test
+    @Test
     public void createBlogNonExistingAccount() throws Exception {
         when(accountService.createBlog(eq(1L), any(Blog.class))).thenThrow(new AccountDoesNotExistException());
 
@@ -79,7 +75,7 @@ public class AccountControllerTest {
                 .content("{\"title\":\"Test Title\"}")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest()).andDo(print());
-    }*/
+    }
 
 
 
