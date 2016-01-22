@@ -4,23 +4,28 @@ import com.core.entities.Account;
 import com.core.entities.Blog;
 import com.core.services.AccountService;
 import com.core.services.exceptions.AccountDoesNotExistException;
+import com.jayway.jsonassert.impl.matcher.IsMapContainingKey;
 import com.rest.mvc.AccountController;
+
+import org.hamcrest.core.IsNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
+
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.hamcrest.Matchers.endsWith;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.when;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -67,16 +72,33 @@ public class AccountControllerTest {
 
     }
 
+
     @Test
-    public void createBlogNonExistingAccount() throws Exception {
+    public void createBlogNotExistingAccount() throws Exception{
+
         when(accountService.createBlog(eq(1L), any(Blog.class))).thenThrow(new AccountDoesNotExistException());
 
-        mockMvc.perform(post("/rest/accounts/1/blogs")
-                .content("{\"title\":\"Test Title\"}")
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest()).andDo(print());
+        mockMvc.perform(post("/rest/accounts/1/blogs").content("{\"title\":\"Test Title\"}").contentType(MediaType.APPLICATION_JSON)).
+                andExpect(status().isBadRequest()).
+                andDo(print());
+
     }
 
+    @Test
+    public void getExistingAccount() throws Exception{
+        Account account = new Account();
+        account.setId(1L);
+        account.setName("test");
+        account.setPassword("password");
+        when(accountService.findAccount(eq(1L))).thenReturn(account);
+
+        mockMvc.perform(get("/rest/accounts/1"))
+                .andExpect(jsonPath("$.password", is(nullValue())))  //  is(nullValue())
+                .andExpect(jsonPath("$.name", is(account.getName())))
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
 
 
 }
