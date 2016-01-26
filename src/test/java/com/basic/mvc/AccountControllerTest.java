@@ -17,8 +17,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -44,6 +46,7 @@ public class AccountControllerTest {
     private MockMvc mockMvc;
 
     private ArgumentCaptor<Account> accountCapter;
+    private ArgumentCaptor<Blog> blogCapter;
 
     @Before
     public void setup(){
@@ -68,6 +71,20 @@ public class AccountControllerTest {
                 .andExpect(header().string("Location", endsWith("/blogs/1")))
                 .andExpect(status().isCreated())
                 .andDo(print());
+
+        // verify `createBlog` method has been called.
+        verify(accountService).createBlog(eq(1L), any(Blog.class));
+
+        // use `accountCapture` to capture params passed to `createAccount` method
+        verify(accountService).createBlog(eq(1L),blogCapter.capture());
+        String title = blogCapter.getValue().getTitle();
+        assertEquals("Test title",title);
+
+
+
+
+
+
 
 
     }
