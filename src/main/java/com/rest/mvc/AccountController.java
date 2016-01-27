@@ -44,7 +44,7 @@ public class AccountController {
             headers.setLocation(URI.create(accountResource.getLink("self").getHref()));
             return new ResponseEntity<AccountResource>(accountResource,headers,HttpStatus.CREATED);
         }catch (AccountExistsException exception){
-            throw new AccountExistsException(exception);
+            throw new ConflictException(exception);
         }
     }
 
