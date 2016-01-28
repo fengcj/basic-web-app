@@ -43,7 +43,7 @@ public class BlogController {
             BlogListResource blogListResource = new BlogListResourceAsm().toResource(blogList);
             return new ResponseEntity<BlogListResource>(blogListResource,HttpStatus.OK);
         }catch (Exception e){
-            //TODO: handler exception
+            //TODO: handler exception ,  really need ?
             e.printStackTrace();
             throw e;
         }

@@ -14,11 +14,8 @@ public interface BlogService {
 
     BlogList findAllBlogs();
 
-    BlogEntryList findAllBlogEntries(Long BlogId);
-
     Blog findBlog(Long id);
 
-    Blog deleteBlogEntry(Long id);
-
+    BlogEntryList findAllBlogEntries(Long BlogId);
 
 }
