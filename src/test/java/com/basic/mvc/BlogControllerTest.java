@@ -123,12 +123,39 @@ public class BlogControllerTest {
 
     @Test
     public void findAllBlogEntries() throws Exception {
+
         BlogEntryList foundBlogEntryList = new BlogEntryList();
         List<BlogEntry> lists = new ArrayList<BlogEntry>();
+        BlogEntry blogEntry1 = new BlogEntry();
+        blogEntry1.setId(1L);
+        blogEntry1.setTitle("Test title");
+        BlogEntry blogEntry2 = new BlogEntry();
+        blogEntry2.setId(2L);
+        blogEntry2.setTitle("Test title");
+        lists.add(blogEntry1);
+        lists.add(blogEntry2);
         foundBlogEntryList.setEntries(lists);
+        foundBlogEntryList.setBlogId(1L);
         when(blogService.findAllBlogEntries(1L)).thenReturn(foundBlogEntryList);
+
+
+
+        mockMvc.perform(get("/rest/blogs/1/blog-entries"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.links[*].href",hasItem(endsWith("/blogs/1/blog-entries"))))
+                .andExpect(jsonPath("$.entries[*].title",hasItem(is("Test title"))));
+
     }
 
+    @Test
+    public void findNonExistingAllBlogEntries() throws Exception {
+
+        when(blogService.findAllBlogEntries(1L)).thenThrow(new BlogNotFoundException());
+
+        mockMvc.perform(get("/rest/blogs/1/blog-entries")).andDo(print()).andExpect(status().isNotFound());
+
+    }
 
 
 }
