@@ -1,6 +1,6 @@
 package com.rest.resources.asm;
 
-import com.core.entities.Blog;
+import com.core.models.entries.Blog;
 import com.rest.mvc.AccountController;
 import com.rest.mvc.BlogController;
 import com.rest.resources.BlogResource;

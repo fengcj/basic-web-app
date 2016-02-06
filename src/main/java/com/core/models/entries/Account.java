@@ -1,10 +1,17 @@
-package com.core.entities;
+package com.core.models.entries;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  * Created by fcj on 16/1/12.
  */
-public class Account {
 
+
+@Entity
+public class Account {
+    @Id @GeneratedValue
     private Long id;
     private String name;
     private String password;

@@ -1,7 +1,7 @@
 package com.rest.mvc;
 
-import com.core.entities.Blog;
-import com.core.entities.BlogEntry;
+import com.core.models.entries.Blog;
+import com.core.models.entries.BlogEntry;
 import com.core.services.BlogService;
 import com.core.services.exceptions.BlogNotFoundException;
 import com.core.services.util.BlogEntryList;

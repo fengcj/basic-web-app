@@ -1,7 +1,7 @@
 package com.rest.mvc;
 
 
-import com.core.entities.BlogEntry;
+import com.core.models.entries.BlogEntry;
 import com.core.services.BlogEntryService;
 import com.rest.resources.BlogEntryResource;
 import com.rest.resources.asm.BlogEntryResourceAsm;

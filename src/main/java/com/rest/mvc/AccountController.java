@@ -1,7 +1,7 @@
 package com.rest.mvc;
 
-import com.core.entities.Account;
-import com.core.entities.Blog;
+import com.core.models.entries.Account;
+import com.core.models.entries.Blog;
 import com.core.services.AccountService;
 import com.core.services.exceptions.AccountDoesNotExistException;
 import com.core.services.exceptions.AccountExistsException;

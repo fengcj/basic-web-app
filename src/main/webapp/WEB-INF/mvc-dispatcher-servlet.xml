@@ -12,7 +12,7 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="com.basic.*" />
+    <context:component-scan base-package="com.core.*" />
 
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -1,6 +1,6 @@
-package com.basic.mvc;
+package com.rest.mvc;
 
-import com.core.entities.BlogEntry;
+import com.core.models.entries.BlogEntry;
 import com.core.services.BlogEntryService;
 import com.rest.mvc.BlogEntryController;
 import org.junit.Before;

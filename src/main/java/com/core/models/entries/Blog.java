@@ -1,4 +1,6 @@
-package com.core.entities;
+package com.core.models.entries;
+
+import com.core.models.entries.Account;
 
 /**
  * Created by fcj on 16/1/12.

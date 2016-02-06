@@ -1,7 +1,7 @@
 package com.core.services;
 
-import com.core.entities.Account;
-import com.core.entities.Blog;
+import com.core.models.entries.Account;
+import com.core.models.entries.Blog;
 
 /**
  * Created by fcj on 16/1/12.

@@ -1,6 +1,6 @@
 package com.rest.resources.asm;
 
-import com.core.entities.Account;
+import com.core.models.entries.Account;
 import com.rest.mvc.AccountController;
 import com.rest.resources.AccountResource;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;

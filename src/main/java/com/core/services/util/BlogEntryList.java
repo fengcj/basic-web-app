@@ -1,7 +1,6 @@
 package com.core.services.util;
 
-import com.core.entities.Blog;
-import com.core.entities.BlogEntry;
+import com.core.models.entries.BlogEntry;
 
 import java.util.ArrayList;
 import java.util.List;

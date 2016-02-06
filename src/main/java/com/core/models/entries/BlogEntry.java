@@ -1,4 +1,6 @@
-package com.core.entities;
+package com.core.models.entries;
+
+import com.core.models.entries.Blog;
 
 /**
  * Created by fengc on 1/11/2016.
