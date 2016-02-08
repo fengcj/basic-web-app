@@ -1,16 +1,27 @@
-package com.core.models.entries;
+package com.core.models.entities;
 
-import com.core.models.entries.Blog;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * Created by fengc on 1/11/2016.
  */
+
+
+
+@Entity
 public class BlogEntry {
 
+    @Id @GeneratedValue
     private Long id;
 
     private String title;
 
+    private String content;
+
+    @ManyToOne
     private Blog blog;
 
     public Blog getBlog() {
@@ -36,4 +47,11 @@ public class BlogEntry {
         this.id = id;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }

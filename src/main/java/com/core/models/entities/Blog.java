@@ -1,15 +1,23 @@
-package com.core.models.entries;
+package com.core.models.entities;
 
-import com.core.models.entries.Account;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  * Created by fcj on 16/1/12.
  */
+
+@Entity
 public class Blog {
 
-
+    @Id @GeneratedValue
     private Long id;
     private String title;
+
+
+    @OneToOne
     private Account owner;
 
 

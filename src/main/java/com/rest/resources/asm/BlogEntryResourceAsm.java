@@ -1,6 +1,6 @@
 package com.rest.resources.asm;
 
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.BlogEntry;
 import com.rest.mvc.BlogController;
 import com.rest.mvc.BlogEntryController;
 import com.rest.resources.BlogEntryResource;
@@ -22,6 +22,7 @@ public class BlogEntryResourceAsm extends ResourceAssemblerSupport<BlogEntry,Blo
     public BlogEntryResource toResource(BlogEntry blogEntry) {
         BlogEntryResource resource = new BlogEntryResource();
         resource.setTitle(blogEntry.getTitle());
+        resource.setContent(blogEntry.getContent());
         Link self = linkTo(BlogEntryController.class).slash(blogEntry.getId()).withSelfRel();
         resource.add(self);
         if(blogEntry.getBlog() != null){

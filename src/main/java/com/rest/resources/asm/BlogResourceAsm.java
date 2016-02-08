@@ -1,6 +1,6 @@
 package com.rest.resources.asm;
 
-import com.core.models.entries.Blog;
+import com.core.models.entities.Blog;
 import com.rest.mvc.AccountController;
 import com.rest.mvc.BlogController;
 import com.rest.resources.BlogResource;
@@ -24,7 +24,7 @@ public class BlogResourceAsm extends ResourceAssemblerSupport<Blog,BlogResource>
         BlogResource blogResource = new BlogResource();
         blogResource.setTitle(blog.getTitle());
         blogResource.add(linkTo(BlogController.class).slash(blog.getId()).withSelfRel());
-        blogResource.add(linkTo(BlogController.class).slash(blog.getId()).slash("entries").withRel("entries"));
+        blogResource.add(linkTo(BlogController.class).slash(blog.getId()).slash("blog-entries").withRel("entries"));
         if(blog.getOwner() != null){
             blogResource.add(linkTo(AccountController.class).slash(blog.getOwner().getId()).withRel("owner"));
         }

@@ -1,11 +1,10 @@
 package com.rest.mvc;
 
-import com.core.models.entries.Account;
-import com.core.models.entries.Blog;
+import com.core.models.entities.Account;
+import com.core.models.entities.Blog;
 import com.core.services.AccountService;
 import com.core.services.exceptions.AccountDoesNotExistException;
 import com.core.services.exceptions.AccountExistsException;
-import com.rest.mvc.AccountController;
 
 import org.junit.Before;
 import org.junit.Test;

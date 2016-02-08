@@ -1,6 +1,6 @@
 package com.core.services.util;
 
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.BlogEntry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,11 @@ import java.util.List;
  * Created by fcj on 16/1/12.
  */
 public class BlogEntryList {
+
+    public BlogEntryList(Long blogId,List<BlogEntry> entries){
+        this.blogId = blogId;
+        this.entries = entries;
+    }
 
 
     public List<BlogEntry> getEntries() {

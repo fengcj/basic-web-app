@@ -1,8 +1,7 @@
 package com.rest.mvc;
 
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.BlogEntry;
 import com.core.services.BlogEntryService;
-import com.rest.mvc.BlogEntryController;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;

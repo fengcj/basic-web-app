@@ -1,7 +1,7 @@
 package com.core.services;
 
-import com.core.models.entries.Blog;
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.Blog;
+import com.core.models.entities.BlogEntry;
 import com.core.services.util.BlogEntryList;
 import com.core.services.util.BlogList;
 

@@ -1,6 +1,6 @@
 package com.rest.resources.asm;
 
-import com.core.models.entries.Account;
+import com.core.models.entities.Account;
 import com.rest.mvc.AccountController;
 import com.rest.resources.AccountResource;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
@@ -24,8 +24,9 @@ public class AccountResourceAsm extends ResourceAssemblerSupport<Account,Account
         accountResource.setName(account.getName());
         accountResource.setPassword(account.getPassword());
         // methodOn(AccountController.class).getAccount(account.getId());
+        System.out.println("----->>>>" + account.getId());
         accountResource.add(linkTo(methodOn(AccountController.class).getAccount(account.getId())).withSelfRel());
-
+        accountResource.add(linkTo(methodOn(AccountController.class).findAllBlogs(account.getId())).withRel("blogs"));
 
         return accountResource;
     }

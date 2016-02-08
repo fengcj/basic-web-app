@@ -1,6 +1,6 @@
 package com.core.services;
 
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.BlogEntry;
 
 /**
  * Created by fengc on 1/12/2016.

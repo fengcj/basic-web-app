@@ -1,7 +1,7 @@
 package com.rest.mvc;
 
-import com.core.models.entries.Blog;
-import com.core.models.entries.BlogEntry;
+import com.core.models.entities.Blog;
+import com.core.models.entities.BlogEntry;
 import com.core.services.BlogService;
 import com.core.services.exceptions.BlogNotFoundException;
 import com.core.services.util.BlogEntryList;
@@ -15,6 +15,7 @@ import com.rest.resources.asm.BlogEntryListResourceAsm;
 import com.rest.resources.asm.BlogEntryResourceAsm;
 import com.rest.resources.asm.BlogListResourceAsm;
 import com.rest.resources.asm.BlogResourceAsm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,11 @@ import java.net.URI;
 public class BlogController {
 
     private BlogService blogService;
+
+    @Autowired
+    public BlogController(BlogService blogService){
+        this.blogService = blogService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<BlogListResource> findAllBlogs(){

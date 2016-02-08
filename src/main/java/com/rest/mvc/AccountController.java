@@ -1,29 +1,37 @@
 package com.rest.mvc;
 
-import com.core.models.entries.Account;
-import com.core.models.entries.Blog;
+import com.core.models.entities.Account;
+import com.core.models.entities.Blog;
 import com.core.services.AccountService;
 import com.core.services.exceptions.AccountDoesNotExistException;
 import com.core.services.exceptions.AccountExistsException;
 import com.core.services.exceptions.BlogExistsException;
+import com.core.services.util.AccountList;
+import com.core.services.util.BlogList;
 import com.rest.exceptions.BadRequestException;
 import com.rest.exceptions.ConflictException;
+import com.rest.exceptions.NotFoundException;
+import com.rest.resources.AccountListResource;
 import com.rest.resources.AccountResource;
+import com.rest.resources.BlogListResource;
 import com.rest.resources.BlogResource;
+import com.rest.resources.asm.AccountListResourceAsm;
 import com.rest.resources.asm.AccountResourceAsm;
+import com.rest.resources.asm.BlogListResourceAsm;
 import com.rest.resources.asm.BlogResourceAsm;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by fengc on 1/13/2016.
@@ -34,6 +42,31 @@ import java.net.URI;
 public class AccountController {
 
     private AccountService accountService;
+
+    @Autowired
+    public AccountController(AccountService accountService){
+        this.accountService = accountService;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<AccountListResource> findAllAccounts(@RequestParam(value="name",required = false) String name){
+        AccountList accountList = null;
+        if(name == null){
+            accountList = accountService.findAllAccounts();
+        }else{
+            Account account = accountService.findByAccountName(name);
+            if(account == null){
+                accountList = new AccountList(new ArrayList<Account>());
+            }else{
+                accountList = new AccountList(Arrays.asList(account));
+            }
+        }
+        AccountListResource accountListResource = new AccountListResourceAsm().toResource(accountList);
+     //   System.out.println("===>>>" + accountListResource.toString());
+   //     System.out.println("===>>>" + accountListResource.getLinks());
+
+        return new ResponseEntity<AccountListResource>(accountListResource,HttpStatus.OK);
+    }
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<AccountResource> createAccount(@RequestBody AccountResource sendAccount){
@@ -74,6 +107,19 @@ public class AccountController {
         }catch (BlogExistsException exception){
             throw new ConflictException(exception);
         }
+
+    }
+
+    @RequestMapping(value = "/{accountId}/blogs",method=RequestMethod.GET)
+    public ResponseEntity<BlogListResource> findAllBlogs(@PathVariable Long accountId){
+        try {
+            BlogList blogs = accountService.findBlogsByAccount(accountId);
+            BlogListResource blogListResource = new BlogListResourceAsm().toResource(blogs);
+            return new ResponseEntity<BlogListResource>(blogListResource,HttpStatus.OK);
+        } catch (AccountDoesNotExistException e) {
+            throw  new NotFoundException();
+        }
+
 
     }
 

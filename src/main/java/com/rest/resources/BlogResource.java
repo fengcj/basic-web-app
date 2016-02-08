@@ -1,6 +1,6 @@
 package com.rest.resources;
 
-import com.core.models.entries.Blog;
+import com.core.models.entities.Blog;
 import org.springframework.hateoas.ResourceSupport;
 
 /**

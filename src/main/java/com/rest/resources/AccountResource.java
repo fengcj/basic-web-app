@@ -1,6 +1,6 @@
 package com.rest.resources;
 
-import com.core.models.entries.Account;
+import com.core.models.entities.Account;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.hateoas.ResourceSupport;
