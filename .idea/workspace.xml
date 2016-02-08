@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff542d9b-78af-4e29-bfc9-7ed0bd19310c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/core/models/entries/Account.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/models/entities/Account.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/core/models/entries/Blog.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/models/entities/Blog.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/core/models/entries/BlogEntry.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/models/entities/BlogEntry.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/mvc/AccountController.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/mvc/AccountController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/rest/mvc/AccountControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/rest/mvc/AccountControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/AccountResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/AccountResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/AccountResourceAsm.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/AccountResourceAsm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/core/services/AccountService.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/services/AccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/mvc/BlogController.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/mvc/BlogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/rest/mvc/BlogControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/rest/mvc/BlogControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/mvc/BlogEntryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/mvc/BlogEntryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/rest/mvc/BlogEntryControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/rest/mvc/BlogEntryControllerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/core/services/util/BlogEntryList.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/services/util/BlogEntryList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/BlogEntryResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/BlogEntryResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/BlogEntryResourceAsm.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/BlogEntryResourceAsm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/core/services/BlogEntryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/services/BlogEntryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/core/services/util/BlogList.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/services/util/BlogList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/BlogResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/BlogResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/BlogResourceAsm.java" afterPath="$PROJECT_DIR$/src/main/java/com/rest/resources/asm/BlogResourceAsm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/core/services/BlogService.java" afterPath="$PROJECT_DIR$/src/main/java/com/core/services/BlogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ff542d9b-78af-4e29-bfc9-7ed0bd19310c" name="Default" comment="" />
     <ignored path="basic-web-app2.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -94,8 +70,8 @@
       <file leaf-file-name="BlogEntryResource.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/rest/resources/BlogEntryResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.98416287" vertical-offset="0" max-vertical-offset="570">
-              <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.6447964" vertical-offset="0" max-vertical-offset="570">
+              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
               <folding>
                 <element signature="e#622#623#0" expanded="true" />
                 <element signature="e#652#653#0" expanded="true" />
@@ -286,8 +262,8 @@
     <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=/usr/local/Cellar/maven/3.3.3/libexec" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="104" />
-    <option name="y" value="57" />
+    <option name="x" value="106" />
+    <option name="y" value="23" />
     <option name="width" value="1296" />
     <option name="height" value="790" />
   </component>
@@ -417,6 +393,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="basic-web-app2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="basic-web-app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1314,7 +1316,7 @@
       <created>1453082385137</created>
       <option name="number" value="Default" />
       <updated>1453082385137</updated>
-      <workItem from="1454079748358" duration="32253000" />
+      <workItem from="1454079748358" duration="32870000" />
     </task>
     <task id="LOCAL-00001" summary="solve test fail because of wrong static import in &quot;BlogResourceAsm&quot; class">
       <created>1453346792805</created>
@@ -1358,11 +1360,17 @@
       <option name="project" value="LOCAL" />
       <updated>1454757832947</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="review code and add more logic">
+      <created>1454932270121</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1454932270121</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32253000" />
+    <option name="totallyTimeSpent" value="32870000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1374,8 +1382,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="104" y="57" width="1296" height="790" extended-state="0" />
-    <editor active="false" />
+    <frame x="106" y="23" width="1296" height="790" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1391,11 +1399,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939914" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294621" sideWeight="0.49442896" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20574163" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35486445" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4469914" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32664755" sideWeight="0.49954996" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32664755" sideWeight="0.49954996" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1470,7 +1478,8 @@
     <MESSAGE value="add test for BlogController&#10;&#10;" />
     <MESSAGE value="add test for BlogController" />
     <MESSAGE value="add repository for DAO" />
-    <option name="LAST_COMMIT_MESSAGE" value="add repository for DAO" />
+    <MESSAGE value="review code and add more logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="review code and add more logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1936,8 +1945,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/rest/resources/BlogEntryResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.98416287" vertical-offset="0" max-vertical-offset="570">
-          <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.6447964" vertical-offset="0" max-vertical-offset="570">
+          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
           <folding>
             <element signature="e#622#623#0" expanded="true" />
             <element signature="e#652#653#0" expanded="true" />
